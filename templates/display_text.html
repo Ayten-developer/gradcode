@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Papers</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        /* Set background image */
+        body {
+            background-image: url('/static/backroundwaves.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #a675d6; /* Fallback background color */
+        }
+
+        .container {
+            background-image: url('/static/backroundwaves.png');
+            margin-top: 50px;
+            padding: 20px;
+            /* background-color: rgba(255, 255, 255, 0.8); /*Semi-transparent white background */
+            border-radius: 10px; /* Rounded corners for the container */
+        }
+
+        .card {
+            margin-bottom: 20px;
+            /* background-color: #fb5050; Red background for cards */
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0); /* White text color */
+            border-radius: 10px; /* Rounded corners for cards */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Lift card slightly on hover */
+        }
+
+        .card-body {
+            padding: 20px; /* Padding inside the card body */
+        }
+
+        .card-title {
+            margin-bottom: 10px; /* Bottom margin for card title */
+        }
+
+        .card-text {
+            height: 50px; /* Initial height for card text */
+            overflow: hidden; /* Hide overflow text */
+            transition: height 0.3s ease; /* Smooth transition for text expansion */
+        }
+
+        .card:hover .card-text {
+            height: auto; /* Expand text height on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Recommended Papers</h1>
+
+        {% if enumerated_recommendations %}
+            <div class="row">
+                {% for index, (name, description) in enumerated_recommendations %}
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ index }}. {{ name }}</h5>
+                                <p class="card-text">{{ description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info" role="alert">
+                No recommendations found.
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

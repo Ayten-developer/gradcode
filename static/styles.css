@@ -1,0 +1,106 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f0f0f0; */
+    background-image: url('/static/backroundwaves.png');
+    color: #333;
+    line-height: 1.6;
+    display: flex; /* Ensure flex layout for full-height footer */
+    flex-direction: column; /* Arrange content in a column */
+    min-height: 100vh; /* Ensure the body fills the viewport */
+}
+
+header {
+    /* background-color: #872222;  */
+    background-color: #fb5050; 
+    padding: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+main {
+    flex: 1; /* Allow main content to grow to fill remaining space */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.content {
+    /* background-color: #872222;  */
+    background-color: #fb5050;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center; /* Center text and form elements */
+    max-width: 400px; /* Limit width for better readability */
+    width: 100%; /* Ensure full width within flex container */
+}
+
+.content h2 {
+    color: #000000; /* Green heading */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputfile {
+    display: none; /* Hide the default file input */
+}
+
+label {
+    background-color: #782ca8; /* Green button background */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+label:hover {
+    background-color: #005f6b; /* Darker green on hover */
+}
+
+button {
+    background-color: #008CBA; /* Blue button background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f6b; /* Darker blue on hover */
+}
+
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Style for error message */
+.error-message {
+    color: yellow;
+    margin-top: 10px;
+}
+
+/* Style for success message */
+.success-message {
+    color: green;
+    margin-top: 10px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommending materials</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Morshedy Academic Advisor</h1>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Get Similar Papers</h2>
+            <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" id="file" name="file" class="inputfile">
+                <label for="file">Choose a file</label>
+                {% if error_message %}
+                    <div id="fileError" class="error-message">{{ error_message }}</div>
+                {% else %}
+                    <div id="fileError" class="error-message"></div>
+                {% endif %}
+                <button type="submit">Upload File</button>
+            </form>
+            
+            <!-- Display cosim_result as HTML table -->
+            {% if cosim_table %}
+                <div id="cosimTable">
+                    {{ cosim_table | safe }}
+                </div>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Morshedy Academic Advisor</p>
+    </footer>
+    <script>
+        // JavaScript for form validation
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            var fileInput = document.getElementById("file");
+            var fileError = document.getElementById("fileError");
+            
+            if (!fileInput.files.length) {
+                fileError.textContent = "Please upload a file.";
+                event.preventDefault(); // Prevent form submission
+            } else {
+                fileError.textContent = ""; // Clear any previous error messages
+            }
+        });
+    </script>
+</body>
+</html>
